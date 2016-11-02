@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FoodReview</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+ <nav class="navbar navbar-default">
+ <div class="container">
+ <div class="navbar-header">
+  <li> <%= link_to "Food Review",root_path, class:"navbar-brand"%> 
+  </div>
+
+<ul <nav class="nav navbar-nav">
+<% if user_signed_in?%>
+<li> <%=link_to "Sign Out",destroy_user_session_path,method: :delete %> </li>
+
+<%else%>
+
+<li> <%= link_to "Sign up",new_user_registration_path %> </li>
+
+<li> <%= link_to "Log in",new_user_session_path %> </li>
+<li><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></li>
+<li><%= link_to "Sign in with Facebook",user_omniauth_authorize_path(:facebook) %> </li>
+<%end%>
+ </ul> 
+
+<ul <nav class="nav navbar-nav navbar-right">
+<li class="dropdown">
+
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+aria-expanded="false"> Categories <span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+<% Category.all.each do |category| %>
+<li class= "<%='active' if params[:category]== category.name %>" >
+<%= link_to category.name, foods_path(category: category.name),class: "link" %>
+
+</li>
+
+<%end%>
+</ul>
+</li>
+
+
+
+<% if user_signed_in?%>
+<li> <%=link_to "Add Food Item", new_food_path%> </li>
+<%end%>
+ </ul> 
+
+</div>
+  </nav> 
+      <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+<div class="container">
+
+<%= yield %>
+</div>
+</body>
+</html>

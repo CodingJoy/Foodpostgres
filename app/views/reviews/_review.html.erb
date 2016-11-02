@@ -1,0 +1,20 @@
+<div class="review">
+
+<div class="review-rating" data-score="<%= review.rating %>"></div>
+
+<p class="review-comment"><%=review.comment %></p>
+
+
+<% if user_signed_in? %>
+
+  <% if review.user_id==current_user.id %>
+
+<div class="links btn-group">
+
+<%=link_to "Edit",edit_food_review_path(review.food,review),class: " btn-custom" %>
+<%=link_to "Delete",food_review_path(review.food,review), method: :delete, data: {confirm: "Are You sure?" },class: "btn-custom" %>
+</div>
+<%end%>
+
+<%end%>
+</div>

@@ -1,0 +1,9 @@
+I"¥(function() {
+  $(document).on("page:change", function() {
+    return $('.btn-custom').click(function() {
+      return alert("Hello");
+    });
+  });
+
+}).call(this);
+:ET

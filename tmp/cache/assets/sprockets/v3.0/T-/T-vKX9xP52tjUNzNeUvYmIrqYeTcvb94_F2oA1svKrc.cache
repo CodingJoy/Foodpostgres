@@ -1,0 +1,9 @@
+I"¸(function() {
+  $(document).on("page:change", function() {
+    return $('.food-show').click(function() {
+      return alert("Hello you clicked a photo");
+    });
+  });
+
+}).call(this);
+:ET

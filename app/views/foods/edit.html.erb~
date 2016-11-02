@@ -1,0 +1,14 @@
+<h1>Edit  Food  </h1>
+
+<%=simple_form_for @food, :html => {:multipart => true} do |f| %>
+<%=select_tag(:category_id,options_for_select(@categories), :prompt=> "Select a Category") %>
+<%=f.select :category_id,@categories %>
+<%=f.file_field :food_img %>
+
+<%=f.input :name, label: "Food Name" %>
+<%=f.input :description %>
+
+<%=f.input :creator %>
+<%=f.button :submit %>
+
+<%end%>

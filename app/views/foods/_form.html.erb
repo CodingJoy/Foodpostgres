@@ -1,0 +1,28 @@
+<%=simple_form_for @food,  :html => {:multipart => true} do |f| %>
+<%=select_tag(:category_id,options_for_select(@categories), :prompt=> "Select a Category") %>
+<%=f.file_field :food_img %>
+<%=f.input :name, label: "Food Name" %>
+<%=f.input :description %>
+
+<%=f.input :creator %>
+
+
+
+
+<p>Add Another ingredient </p>
+
+<%=f.fields_for :inputs do |builder| %>
+<%=render 'input_fields',f:builder %>
+<%end%>
+<fieldset>
+
+<%=link_to_add_fields "Add Ingredient",f, :inputs %>
+<fieldset>
+
+<%=f.input :directions %>
+
+
+
+<%=f.button :submit,:class => "btn-custom2" %>
+<%end%>
+

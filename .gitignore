@@ -1,0 +1,5 @@
+/.env
+.env
+/db/seeds.rb
+
+/config/initializers/setup_mail.rb

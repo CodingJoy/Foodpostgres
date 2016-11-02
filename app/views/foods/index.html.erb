@@ -1,0 +1,32 @@
+<h1 class="current-category">
+ <%=params[:category] %></h1>
+
+<% if @foods.count==0 %>
+<h1> Currently no food items are available in this category</h1>
+
+<%else%>
+<div class="row">
+
+<% @foods.each do |food|%>
+
+<div class="col-md-3">
+<a href="/foods/<%=food.id %>">
+
+<div class="tile">
+<div class ="image_wrapper" >
+
+<%=image_tag food.food_img.url(:food_index), class: "food" %>
+<div class="caption">
+<%=link_to food.name %>
+</div>
+</a>
+</div>
+</div>
+</div>
+
+<%end%>
+
+</div>
+<%end%>
+
+

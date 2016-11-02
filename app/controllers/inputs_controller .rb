@@ -1,0 +1,3 @@
+class InputsController < ApplicationController
+end
+

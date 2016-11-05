@@ -8,6 +8,7 @@
   <%= f.error_notification %>
 
   <div class="form- inputs">
+<% if f.object.email_required? %>
     <%= f.input :email, required: true, autofocus: true %>
     <div><%= f.label :username %><br />
   <%= f.text_field :username %></div>

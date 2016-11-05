@@ -44,6 +44,10 @@ end
 def password_required?
     super && provider.blank?
   end
+def email_required?
+    super && provider.blank?
+  end
+
 
   def update_with_password(params, *options)
     if encrypted_password.blank?
